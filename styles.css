@@ -776,35 +776,31 @@ nav {
   animation: anim 3s infinite;
 }
 
-#slider {
-  padding-bottom: 50vh;
-}
-
 @keyframes scroll {
   0% {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-80%);
   } /* Moves halfway since we duplicate slides */
 }
 
 .slider {
   background: white;
   box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
-  height: 100px;
+  height: 150px;
   margin: auto;
   overflow: hidden;
   position: relative;
-  width: 100vw; /* Full width */
+  width: 100vw; 
 }
 
 .slider::before,
 .slider::after {
   content: "";
-  height: 100px;
+  height: 150px;
   position: absolute;
-  width: 200px;
+  width: 20px;
   z-index: 2;
   background: linear-gradient(
     to right,
@@ -826,18 +822,25 @@ nav {
 
 .slide-track {
   display: flex;
-  width: 200%; /* Double the width to allow infinite looping */
-  animation: scroll 40s linear infinite; /* Default speed for desktop */
+  width: 200%;
+  animation: scroll 50s linear infinite; 
 }
 
-/* Pause animation on hover */
 .slider:hover .slide-track {
   animation-play-state: paused;
 }
 
 .slide {
-  height: 100px;
+  height: 150px;
   width: 250px;
+}
+
+.slide img {
+  width: 100%; 
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+  margin: auto;
 }
 
 #contact {
@@ -950,6 +953,13 @@ nav {
 
 .AddressEtc{
   margin-top: 10px;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.contactIconLinks{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1152,16 +1162,6 @@ footer {
 .copyright a:active{
   color: #555;
   transition: color 0.5s ease-in-out;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.content {
-  flex: 1; /* Pushes footer down */
 }
 
 footer {
