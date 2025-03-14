@@ -21,7 +21,7 @@ html {
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-color: var(--black);
+  background-color: #1B2631;
   color: var(--white);
   padding-top: auto;
 }
@@ -182,7 +182,7 @@ nav {
 
 #getAQuote {
   max-width: 100vw;
-  background-color: #000;
+  background-color: #1B2631;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,6 +196,7 @@ nav {
 }
 
 .animated-button {
+  text-decoration: none;
   position: relative;
   display: flex;
   align-items: center;
@@ -362,7 +363,7 @@ nav {
 
 #about {
   margin: 0;
-  background-color: #000000;
+  background-color: #1B2631;
   height: fit-content;
   max-width: 100vw;
   padding: 0 20px;
@@ -430,6 +431,10 @@ nav {
   cursor: pointer;
 }
 
+.aboutLink a {
+text-decoration: none;
+}
+
 .aboutLink span {
   padding-bottom: 7px;
   letter-spacing: 4px;
@@ -477,7 +482,7 @@ nav {
 }
 
 #products {
-  background-color: #000000;
+  background-color: #1B2631;
   padding: 0;
   height: fit-content;
   display: flex;
@@ -528,6 +533,8 @@ nav {
   max-width: 700px;
   margin: auto;
 }
+
+
 
 .card {
   position: relative;
@@ -590,13 +597,13 @@ nav {
 }
 
 /* Last row center alignment */
-.card:nth-child(7) {
+.cards-container a:nth-child(7) {
   grid-column: 2 / 3;
 }
 
 #gallery {
   padding-top: 0.5vh;
-  background-color: #000;
+  background-color: #1B2631;
   height: 130vh;
   max-width: 100vw;
   padding-bottom: 10vh;
@@ -652,6 +659,11 @@ nav {
   justify-content: center;
   max-width: 1000px;
   margin: auto;
+}
+
+allery{
+  background-image: url("pictures/GalleryBackground.jpg");
+  background-size: cover;
 }
 
 /* Image blocks */

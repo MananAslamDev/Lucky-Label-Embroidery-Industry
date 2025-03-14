@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Woven Tags</title>
+    <link rel="icon" type="image/svg+xml" href="pictures/LLEI-logo.svg" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Root Variables */
+      :root {
+        --green: #37ff8b;
+        --white: #ffffff;
+        --black: #000000;
+      }
+
+      html {
+        scroll-behavior: smooth !important;
+        overflow-x: hidden;
+      }
+
+      /* Body */
+      body {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        background-color: #1b2631;
+        color: var(--white);
+        padding-top: auto;
+      }
+
+      /* Header */
+      header {
+        padding: 0px 10px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10h;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.6);
+        border-bottom: 3px solid var(--green);
+        z-index: 1000;
+      }
+
+      /* Logo + Heading */
+      .logo-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      /* Logo */
+      .logo {
+        height: 40px;
+        width: auto;
+      }
+
+      /* Heading */
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      /* Navigation */
+      nav {
+        display: flex;
+        padding: 3vh 10px;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+      }
+
+      .nav-links li {
+        margin: 0 15px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--white);
+        font-size: 1rem;
+        padding: 5px 0;
+      }
+
+      .nav-links a:hover {
+        color: var(--green);
+        transition: color 0.3s ease-in-out;
+      }
+      .mainHeading {
+        margin-top: 10vh;
+        padding: 10vh 0;
+        background: url(../pictures/AboutUsPageHeader.jpg);
+        background-size: cover;
+        height: 30vh;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        font-size: 1.5rem;
+      }
+      .product-section {
+        height: 90vh;
+        display: flex;
+        align-items: center; /* Align image and text in the center */
+        justify-content: space-between;
+        max-width: 900px;
+        margin: auto;
+        padding: 0px;
+        gap: 30px; /* Space between image and text */
+      }
+
+      /* Left Side: Image */
+      .product-image img {
+        width: 150%;
+        max-width: 400px; /* Limits image size */
+        border-radius: 10px; /* Optional: Rounded corners */
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+        animation: anim 3s infinite;
+      }
+
+      /* Right Side: Text */
+      .product-text {
+        max-width: 450px;
+      }
+
+      .product-text h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #ffffff;
+      }
+
+      .product-text p {
+        font-size: 1rem;
+        color: #848484;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      /* Button Styling */
+      .btn {
+        text-decoration: none;
+        background-color: #000;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .btn:hover {
+        background-color: #1b2631;
+      }
+
+      /* 📌 Responsive: Stack on small screens */
+      @media (max-width: 768px) {
+        .product-section {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .product-image img {
+          max-width: 100%; /* Make image responsive */
+        }
+      }
+      #contact {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  padding: 15vh 5vw;
+  background-color: #000;
+  height: 75vh;
+  max-width: 100vw;
+}
+
+.logoAndName {
+  display: flex;
+  flex-direction: row;
+}
+
+.logoAndName h2 {
+  font-size: 1rem;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.ContactlogoAndDecsription {
+  display: flex;
+  flex-direction: column;
+  word-spacing: 1px;
+}
+
+.ContactlogoAndDecsription {
+  font-size: 0.8rem;
+  word-spacing: 1px;
+}
+
+.ContactlogoAndDecsription p {
+  max-width: 18.5vw;
+  line-height: 1.8;
+}
+
+.ContactPageLogo {
+  height: 100px;
+  width: 100px;
+}
+
+.importantLinks {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ContactImportantLinks {
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ContactImportantLinks a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ContactImportantLinks li a:hover {
+  color: #80c96e;
+  transition: color 0.5s ease-in-out;
+}
+
+.ContactImportantLinks li::before {
+  content: "➣ "; /* Arrow symbol */
+  position: relative;
+  left: 0;
+  color: #ffffff; /* Change color as needed */
+  font-weight: bold;
+}
+
+.contactServices {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ContactPageServices {
+  margin-top: 20px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ContactPageServices a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.ContactPageServices li a:hover {
+  color: #80c96e;
+  transition: color 0.5s ease-in-out;
+}
+
+.ContactPageServices li::before {
+  content: "➣ "; /* Arrow symbol */
+  position: relative;
+  left: 0;
+  color: #ffffff; /* Change color as needed */
+  font-weight: bold;
+}
+
+.AddressEtc {
+  margin-top: 10px;
+  line-height: 1.8;
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.contactIconLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ContactInfo1 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.ContactInfo1 a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: white;
+  font-size: 0.8rem;
+}
+
+.phoneIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.phoneNumber {
+  margin-left: 10px;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.ContactInfo1 a:active .phoneNumber {
+  color: #555;
+}
+
+.ContactInfo2 a {
+  display: flex;
+  flex-direction: row;
+  gap: 12px; /* Adjust spacing between icon and text */
+  text-decoration: none;
+  color: white; /* Default text color */
+}
+
+.emailIcon {
+  width: 24px;
+  height: 24px;
+  fill: white; /* Default icon color */
+}
+
+.emailText {
+  transition: color 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.ContactInfo2 a:active .emailText {
+  color: #555; /* Change text color on hover */
+}
+
+.ContactInfo3 a {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between icon and text */
+  text-decoration: none;
+  color: white;
+}
+
+.locationIcon {
+  width: 34px;
+  height: 34px;
+  fill: white; /* Default icon color */
+}
+
+.locationText {
+  transition: color 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.ContactInfo3 a:active .locationText {
+  color: #555; /* Change text color on hover */
+}
+
+.ContactInfo4 a {
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Space between icon and text */
+  text-decoration: none;
+  color: white;
+}
+
+.clockIcon {
+  width: 24px;
+  height: 24px;
+  fill: white; /* Default icon color */
+}
+
+.timingText {
+  transition: color 0.3s ease-in-out;
+  font-size: 0.8rem;
+}
+
+.ContactInfo4 a:active .timingText {
+  color: #555; /* Change text color on hover */
+}
+
+.Socialscard {
+  width: fit-content;
+  height: fit-content;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px 0;
+  gap: 20px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.055);
+}
+
+/* for all social containers*/
+.socialContainer {
+  width: 48px;
+  height: 48px;
+  border-radius: 5px;
+  background-color: rgb(44, 44, 44);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition-duration: 0.3s;
+}
+/* instagram*/
+.containerOne:hover {
+  background-color: #d62976;
+  transition-duration: 0.3s;
+}
+/* twitter*/
+.containerTwo:hover {
+  background-color: #00acee;
+  transition-duration: 0.3s;
+}
+/* linkdin*/
+.containerThree:hover {
+  background-color: #0072b1;
+  transition-duration: 0.3s;
+}
+/* Whatsapp*/
+.containerFour:hover {
+  background-color: green;
+  transition-duration: 0.3s;
+}
+
+.socialContainer:active {
+  transform: scale(0.9);
+  transition-duration: 0.3s;
+}
+
+.socialSvg {
+  width: 17px;
+}
+
+.socialSvg path {
+  fill: rgb(255, 255, 255);
+}
+
+.socialContainer:hover .socialSvg {
+  animation: slide-in-top 0.3s both;
+}
+
+@keyframes slide-in-top {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+footer {
+  border-top: 2px solid #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 60px; /* Adjust as needed */
+  background-color: #000000; /* Optional: Background color */
+  color: white; /* Optional: Text color */
+}
+
+.copyright {
+  margin: 0; /* Remove default margin */
+  font-size: 1rem; /* Adjust as needed */
+}
+
+.copyright a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.copyright a:active {
+  color: #555;
+  transition: color 0.5s ease-in-out;
+}
+
+footer {
+  background: #000000;
+  color: white;
+  text-align: center;
+  padding: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  nav{
+    display: none;
+  }
+  header{
+    height: 10vh;
+  }
+  .logo-container{
+    padding-top: 2vh;
+  }
+  header h1 {
+    font-size: 1rem;
+  }
+  .quoteBorderBox {
+    margin-top: 5vh;
+    flex-direction: column;
+    height: fit-content;
+    width: fit-content;
+  }
+  .quoteBox {
+    flex-direction: column;
+    gap: 20px;
+    height: fit-content;
+    width: fit-content;
+  }
+  .quoteCards {
+    flex-direction: column;
+    width: fit-content;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  .quoteH2 {
+    font-size: 1.5rem;
+  }
+  #home .intro-text h6 {
+    font-size: 1rem;
+    margin-top: 5vh;
+    margin-bottom: 3vh;
+  }
+  #home .intro-text h2 {
+    font-size: 1.5rem;
+  }
+  #home .intro-text h1 {
+    font-size: 2rem;
+  }
+  .discoverButton {
+    display: none;
+  }
+  .discoverButtonMobile {
+    display: block;
+  }
+  .discoverButtonMobile {
+    text-decoration: none;
+    margin-top: 10vh;
+    margin-left: 5vw;
+    width: 9em;
+    height: 3em;
+    border-radius: 30em;
+    font-size: 15px;
+    font-family: inherit;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 6px 6px 12px #000000, -6px -6px 12px #000000;
+  }
+
+  .discoverButtonMobile::before {
+    text-decoration: none;
+    content: "";
+    width: 0;
+    height: 3em;
+    border-radius: 30em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right, #ffffff 0%, #80c96e 100%);
+    transition: 0.5s ease;
+    display: block;
+    z-index: -1;
+  }
+
+  .discoverButtonMobile:hover::before {
+    width: 9em;
+  }
+  .picAndIntro {
+    flex-direction: column;
+    align-items: center;
+    gap: 10vh;
+    padding-top: 10vh;
+  }
+  .picAndIntro img {
+    margin-left: 0;
+    animation: anim 3s infinite;
+  }
+  .productsHeader {
+    padding: 0;
+    max-width: 80vw;
+  }
+  .productsHeader h2 {
+    font-size: 1.2rem;
+  }
+  .productsHeader p {
+    font-size: 1.5rem;
+  }
+  .cards-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+  .view-more a {
+    animation: anim 3s infinite;
+  }
+  .slide-track {
+    animation: scroll 20s linear infinite; /* Faster on mobile */
+  }
+  #contact{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: -10vh;
+  }
+  .ContactlogoAndDecsription p{
+    max-width: fit-content;
+    line-height: 1.8;
+    padding: 2vh 5vh;
+  }
+  .ContactImportantLinks{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh 5vh;
+
+  }
+  .ContactPageServices{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 2vh 2vh;
+  }
+  .AddressEtc{
+    
+    display: flex;
+    flex-direction: column;
+  }
+  .contactIconLinks{
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 5vh;
+    padding-bottom: 5vh ;
+    gap: 5px;
+  }
+  .copyright{
+    display: none;
+  }
+  .socialContainer{
+    height: 70px;
+    width: 70px;
+  }
+  .Socialscard{
+    padding-top: 10vh;
+  }
+  .product-section{
+    height: fit-content;
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img
+          src="../pictures/LLEI-logo.svg"
+          alt="LuckyLabelEmbroidery Logo"
+          class="logo"
+        />
+        <h1>Lucky Label Embroidery Industry</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../main.html#home">Home</a></li>
+          <li><a href="../main.html#about">About Us</a></li>
+          <li><a href="../main.html#products">Products</a></li>
+          <li><a href="../main.html#gallery">Gallery</a></li>
+          <li><a href="../main.html#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="mainHeading">
+        <h1>Products & Services</h1>
+      </div>
+      <section class="product-section">
+        <!-- Left Side: Product Image -->
+        <div class="product-image">
+          <img src="/pictures/Poly Bags.jpeg" alt="Woven Labels" />
+        </div>
+
+        <!-- Right Side: Product Text -->
+        <div class="product-text">
+            <div class="product-text">
+                <h2>Poly Bags – Secure & Professional Packaging</h2>
+            
+                <p>Poly bags are a <strong>cost-effective and reliable</strong> packaging solution for a wide range of products, including <strong>clothing, accessories, and retail items</strong>. These bags protect against dust, moisture, and damage while keeping your products neatly packed.</p>
+            
+                <p>Available in <strong>various sizes, thicknesses, and custom printing options</strong>, our poly bags can be <strong>branded with your logo, product details, or barcodes</strong> to enhance your packaging presentation.</p>
+            
+                <p>Perfect for <strong>e-commerce, apparel brands, and industrial packaging</strong>, poly bags provide <strong>a lightweight yet durable</strong> solution that ensures product safety and professional appeal.</p>
+            
+                <!-- Functional Button -->
+                <a href="/quotation.html" class="btn">Request a Quote</a>
+            </div>
+      </section>
+    </main>
+    <section id="contact">
+      <div class="ContactlogoAndDecsription">
+        <div class="logoAndName">
+          <a href="main.html#home"
+            ><img
+              src="/pictures/LLEI-logo.svg"
+              alt="LuckyLabelEmbroidery Logo"
+              class="ContactPageLogo"
+          /></a>
+          <h2>Lucky Label Embroidery Industry</h2>
+        </div>
+        <p>
+          Lucky Labels delivers high-quality custom labels that elevate your
+          brand. We ensure precision, creativity, and durability for labels
+          that stand out.
+        </p>
+        <div class="Socialscard">
+          <a class="socialContainer containerOne" href="#">
+            <svg viewBox="0 0 16 16" class="socialSvg instagramSvg">
+              <path
+                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"
+              ></path>
+            </svg>
+          </a>
+
+          <a class="socialContainer containerTwo" href="#">
+            <svg viewBox="0 0 16 16" class="socialSvg twitterSvg">
+              <path
+                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+              ></path>
+            </svg>
+          </a>
+
+          <a class="socialContainer containerThree" href="#">
+            <svg viewBox="0 0 448 512" class="socialSvg linkdinSvg">
+              <path
+                d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"
+              ></path>
+            </svg>
+          </a>
+
+          <a class="socialContainer containerFour" href="#">
+            <svg viewBox="0 0 16 16" class="socialSvg whatsappSvg">
+              <path
+                d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="importantLinks">
+        <h2>Important Links</h2>
+        <ul class="ContactImportantLinks">
+          <li><a href="/main.html#home">Home</a></li>
+          <li><a href="/main.html#about">About Us</a></li>
+          <li><a href="/main.html#products">Products</a></li>
+          <li><a href="/main.html#gallery">Gallery</a></li>
+          <li><a href="/main.html#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="contactServices">
+        <h2>Services</h2>
+        <ul class="ContactPageServices">
+          <li><a href="/Products/woven-labels.html">Woven Labels</a></li>
+          <li><a href="/Products/printed-labels.html">Printed Labels</a></li>
+          <li><a href="/Products/hang-tags.html">Hang Tags</a></li>
+          <li><a href="/Products/poly-bags.html">Poly Bags</a></li>
+          <li><a href="/Products/webbing-tape.html">Webbing Tape</a></li>
+        </ul>
+      </div>
+      <div class="AddressEtc">
+        <h2>Contact Us</h2>
+        <div class="contactIconLinks">
+          <div class="ContactInfo1">
+            <a href="tel:+923184657872">
+              <svg
+                class="phoneIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M17.3545 22.2323C15.3344 21.7262 11.1989 20.2993 7.44976 16.5502C3.70065 12.8011 2.2738 8.66559
+              1.76767 6.6455C1.47681 5.48459 2.00058 4.36434 2.88869 3.72997L5.21694 2.06693C6.57922 1.09388 
+              8.47432 1.42407 9.42724 2.80051L10.893 4.91776C11.5152 5.8165 11.3006 7.0483 10.4111 7.68365L9.24234 
+              8.51849C9.41923 9.1951 9.96939 10.5846 11.6924 12.3076C13.4154 14.0306 14.8049 14.5807 15.4815 
+              14.7576L16.3163 13.5888C16.9517 12.6994 18.1835 12.4847 19.0822 13.1069L21.1995 14.5727C22.5759 15.5257 
+              22.9061 17.4207 21.933 18.783L20.27 21.1113C19.6356 21.9994 18.5154 22.5232 17.3545 22.2323ZM8.86397 
+              15.136C12.2734 18.5454 16.0358 19.8401 17.8405 20.2923C18.1043 20.3583 18.4232 20.2558 18.6425 
+              19.9488L20.3056 17.6205C20.6299 17.1665 20.5199 16.5348 20.061 16.2171L17.9438 14.7513L17.0479 
+              16.0056C16.6818 16.5182 16.0047 16.9202 15.2163 16.7501C14.2323 16.5378 12.4133 15.8569 10.2782 
+              13.7218C8.1431 11.5867 7.46219 9.7677 7.24987 8.7837C7.07977 7.9953 7.48181 7.31821 7.99439 6.95208L9.24864 
+              6.05618L7.78285 3.93893C7.46521 3.48011 6.83351 3.37005 6.37942 3.6944L4.05117 5.35744C3.74413 5.57675 
+              3.64162 5.89565 3.70771 6.15943C4.15989 7.96418 5.45459 11.7266 8.86397 15.136Z"
+                  fill="white"
+                ></path>
+              </svg>
+              <span class="phoneNumber">+92 318 4657872</span>
+            </a>
+          </div>
+          <div class="ContactInfo2">
+            <a href="mailto:your.email@example.com">
+              <svg
+                class="emailIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2 6.5C2 5.67157 2.67157 5 3.5 5H20.5C21.3284 5 22 5.67157 22 6.5V17.5C22 18.3284 21.3284 19 20.5 19H3.5C2.67157 19 2 18.3284 2 17.5V6.5ZM4 7.29289V17H20V7.29289L12 13L4 7.29289ZM3.20711 6L12 12L20.7929 6H3.20711Z"
+                  fill="white"
+                ></path>
+              </svg>
+              <span class="emailText"> your.email@example.com</span>
+            </a>
+          </div>
+          <div class="ContactInfo3">
+            <a href="https://g.co/kgs/WpGwY9S" target="_blank">
+              <svg
+                class="locationIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2C8.13 2 5 5.13 5 9c0 4.41 5.19 10.98 6.63 12.69a1.5 1.5 0 0 0 2.37 0C13.81 19.98 19 13.41 19 9c0-3.87-3.13-7-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5Z"
+                  fill="white"
+                ></path>
+              </svg>
+              <span class="locationText"
+                >78-S Industrial Estate Kot Lakhpat, Lahore, 54500, Punjab,
+                Pakistan</span
+              >
+            </a>
+          </div>
+          <div class="ContactInfo4">
+            <a>
+              <svg
+                class="clockIcon"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 4a8 8 0 1 1-8 8 8.01 8.01 0 0 1 8-8Zm0-2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm.5 5h-1v6l4.25 2.52.5-.87L12.5 13V7Z"
+                  fill="white"
+                ></path>
+              </svg>
+              <span class="timingText">Mon - Fri: 9 AM - 5 PM</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p class="copyright">
+      Copyright &copy; 2025,
+      <a href="#home">Lucky Label Embroidery Industry</a>. All Rights
+      Reserved.
+    </p>
+  </footer>
+  </body>
+</html>
