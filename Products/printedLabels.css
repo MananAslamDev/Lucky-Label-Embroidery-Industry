@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+/* Root Variables */
+:root {
+  --green: #37ff8b;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 html {
   scroll-behavior: smooth !important;
   overflow-x: hidden;
@@ -13,8 +20,8 @@ html {
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  background-color: black;
-  color: white;
+  background-color: #1b2631;
+  color: var(--white);
   padding-top: auto;
 }
 
@@ -25,13 +32,13 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 8vh;
+  height: 10h;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   background: rgba(0, 0, 0, 0.6);
-  border-bottom: 3px solid #37ff8b;
+  border-bottom: 3px solid var(--green);
   z-index: 1000;
 }
 
@@ -51,11 +58,6 @@ header {
 /* Heading */
 header h1 {
   font-size: 1.5rem;
-}
-
-.headerLink {
-  text-decoration: none;
-  color: #fff;
 }
 
 /* Navigation */
@@ -99,14 +101,10 @@ nav ul li a:hover::after {
   width: 100%; /* Expands from left to right */
 }
 
-main {
-  background-color: #1b2631;
-}
-
 .mainHeading {
-  margin-top: 8vh;
-  padding: 8vh 0;
-  background: url(pictures/AboutUsPageHeader.jpg);
+  margin-top: 10vh;
+  padding: 10vh 0;
+  background: url(../pictures/AboutUsPageHeader.jpg);
   background-size: cover;
   height: 30vh;
   display: flex;
@@ -114,62 +112,67 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
-
-.about-container {
+.product-section {
+  height: 100vh;
   display: flex;
-  align-items: center; /* Center images & text vertically */
-  justify-content: space-between; /* Space between images & text */
-
+  align-items: center; /* Align image and text in the center */
+  justify-content: space-between;
   max-width: 900px;
   margin: auto;
-  padding: 50px;
+  padding: 0px;
+  gap: 30px; /* Space between image and text */
+}
+.product-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-auto-rows: auto; /* Adjust row height dynamically */
+  gap: 10px; /* Space between images */
+  max-width: 400px; /* Limits grid width */
 }
 
-/* Left side: Images & names */
-.about-images {
-  display: flex;
-  flex-direction: column; /* Stack images & text vertically */
-  align-items: center;
-  gap: 100px; /* Space between the two people */
+.product-images img {
+  width: 100%; /* Make images fill their grid cells */
+  border-radius: 10px; /* Optional: Rounded corners */
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
+  object-fit: cover; /* Ensures images don't get distorted */
 }
 
-.person {
-  text-align: center;
+.product-images img.medium {
+  grid-row: span 1; /* Medium images */
 }
 
-.person img {
-  width: 120px; /* Adjust size */
-  height: 120px;
-  border-radius: 50%; /* Make images round */
-  object-fit: cover; /* Ensure image fits inside the circle */
-  border: 3px solid #333; /* Optional: Border around images */
+.product-images img.short {
+  grid-row: span 1; /* Short images */
 }
 
-.person p {
-  margin-top: 10px;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #878484;
+/* Responsive: Switch to single column on small screens */
+@media (max-width: 768px) {
+  .product-images {
+    grid-template-columns: 1fr; /* Show images in one column */
+  }
 }
 
-/* Right side: About Us text */
-.about-text {
-  max-width: 400px;
+/* Right Side: Text */
+.product-text {
+  max-width: 450px;
 }
 
-.about-text h2 {
+.product-text h2 {
   font-size: 2rem;
-  margin-bottom: 40px;
+  margin-bottom: 10px;
+  color: #ffffff;
 }
 
-.about-text p {
+.product-text p {
   font-size: 1rem;
-  color: #878484;
+  color: #848484;
+  line-height: 1.6;
   margin-bottom: 30px;
 }
 
+/* Button Styling */
 .btn {
   text-decoration: none;
   background-color: #000;
@@ -183,33 +186,20 @@ main {
 }
 
 .btn:hover {
-  background-color: #4c4c4c;
+  background-color: #848484;
 }
 
 /* 📌 Responsive: Stack on small screens */
 @media (max-width: 768px) {
-  .about-container {
+  .product-section {
     flex-direction: column;
     text-align: center;
   }
 
-  .about-images {
-    justify-content: center;
+  .product-image img {
+    max-width: 100%; /* Make image responsive */
   }
 }
-
-/* 📌 Responsive: Stack on small screens */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .about-images {
-    justify-content: center;
-  }
-}
-
 #contact {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -695,5 +685,19 @@ footer {
   }
   .Socialscard {
     padding-top: 10vh;
+  }
+}
+
+@keyframes anim {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }

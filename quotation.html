@@ -8,6 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="Image/png" href="pictures/roundLogo.jpg">
     <style>
       * {
         margin: 0;
@@ -22,8 +23,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #000;
-    padding: 12vh 0;
+    background: url(pictures/home-bg.jpg);
+    padding-top: 12vh;
 }
 
 .container {
@@ -35,7 +36,7 @@
     width: 100%;
     max-width: 450px;
     color: #fff;
-    margin-bottom: auto; /* Keeps space for the footer */
+    margin-bottom: 5vh; /* Keeps space for the footer */
 }
 
       .container h2 {
@@ -156,32 +157,51 @@
         font-size: 1.5rem;
       }
 
+      .headerLink{
+  text-decoration: none;
+  color: #fff;
+}
+
       /* Navigation */
       nav {
-        display: flex;
-        padding: 3vh 10px;
-      }
+  display: flex;
+  padding: 3vh 10px;
+}
 
-      .nav-links {
-        list-style: none;
-        display: flex;
-      }
+.nav-links {
+  list-style: none;
+  display: flex;
+}
 
-      .nav-links li {
-        margin: 0 15px;
-      }
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+  position: relative;
+}
 
-      .nav-links a {
-        text-decoration: none;
-        color: var(--white);
-        font-size: 1rem;
-        padding: 5px 0;
-      }
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 5px 0;
+  position: relative;
+}
 
-      .nav-links a:hover {
-        color: var(--green);
-        transition: color 0.3s ease-in-out;
-      }
+/* Creating the border effect */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px; /* Adjust distance from text */
+  width: 0%;
+  height: 3px;
+  background-color: var(--green); /* Change to your preferred color */
+  transition: width 0.4s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%; /* Expands from left to right */
+}
       #contact {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -483,9 +503,12 @@ footer {
   justify-content: center;
   align-items: center;
   text-align: center;
-  height: 60px; /* Adjust as needed */
+  height: 20vh; 
+  width: 100vw;/* Adjust as needed */
   background-color: #000000; /* Optional: Background color */
   color: white; /* Optional: Text color */
+  margin-bottom: 0;
+  padding: 0;
 }
 
 .copyright {
@@ -507,8 +530,8 @@ footer {
   background: #000000;
   color: white;
   text-align: center;
-  padding: 10px;
 }
+
 @media screen and (max-width: 768px) {
   nav{
     display: none;
@@ -687,14 +710,16 @@ footer {
   </head>
   <body>
     <header>
-      <div class="logo-container">
+      <a href="/main.html#home" class="headerLink"> 
+        <div class="logo-container">
         <img
-          src="../pictures/LLEI-logo.svg"
+          src="pictures/logo.png"
           alt="LuckyLabelEmbroidery Logo"
           class="logo"
         />
         <h1>Lucky Label Embroidery Industry</h1>
-      </div>
+        </div>
+      </a>
       <nav>
         <ul class="nav-links">
           <li><a href="../main.html#home">Home</a></li>
@@ -803,7 +828,7 @@ footer {
           <div class="logoAndName">
             <a href="main.html#home"
               ><img
-                src="pictures/LLEI-logo.svg"
+                src="pictures/logo.png"
                 alt="LuckyLabelEmbroidery Logo"
                 class="ContactPageLogo"
             /></a>
@@ -824,9 +849,10 @@ footer {
             </a>
 
             <a class="socialContainer containerTwo" href="#">
-              <svg viewBox="0 0 16 16" class="socialSvg twitterSvg">
-                <path
-                  d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"
+              <svg viewBox="0 0 24 24" class="socialSvg facebookSvg">
+                <path 
+                  d="M22.675 0h-21.35C.597 0 0 .6 0 1.337V22.66C0 23.4.597 24 1.325 24h11.495v-9.294H9.69v-3.62h3.13V8.41c0-3.1 1.893-4.788 4.656-4.788 1.325 0 2.464.097 2.795.142v3.24h-1.918c-1.504 0-1.793.716-1.793 1.764v2.313h3.587l-.467 3.62h-3.12V24h6.117c.728 0 1.325-.6 1.325-1.34V1.337C24 .6 23.403 0 22.675 0z"
+                  fill="currentColor"
                 ></path>
               </svg>
             </a>

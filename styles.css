@@ -43,6 +43,11 @@ header {
   z-index: 1000;
 }
 
+.headerLink{
+  text-decoration: none;
+  color: #fff;
+}
+
 /* Logo + Heading */
 .logo-container {
   display: flex;
@@ -72,20 +77,34 @@ nav {
   display: flex;
 }
 
-.nav-links li {
+nav ul li {
+  display: inline-block;
   margin: 0 15px;
+  position: relative;
 }
 
-.nav-links a {
+nav ul li a {
   text-decoration: none;
-  color: var(--white);
-  font-size: 1rem;
+  color: white;
+  font-size: 18px;
   padding: 5px 0;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: var(--green);
-  transition: color 0.3s ease-in-out;
+/* Creating the border effect */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px; /* Adjust distance from text */
+  width: 0%;
+  height: 3px;
+  background-color: var(--green); /* Change to your preferred color */
+  transition: width 0.4s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%; /* Expands from left to right */
 }
 
 /* NavBar Styles Ended*/
@@ -148,7 +167,7 @@ nav {
 .discoverButton {
   --border-right: 6px;
   --text-stroke-color: rgba(255, 255, 255, 0.6);
-  --animation-color: #37ff8b;
+  --animation-color: var(--green);
   --fs-size: 2rem;
   letter-spacing: 3px;
   text-decoration: none;
@@ -187,7 +206,7 @@ nav {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0 20px;
+  padding: 5vh 20px;
 }
 
 .getAQuote button {
@@ -382,9 +401,6 @@ nav {
   height: 400px;
   width: 300px;
   margin-left: 15vw;
-}
-
-.picAndIntro img:hover {
   animation: anim 3s infinite;
 }
 
@@ -534,8 +550,6 @@ text-decoration: none;
   margin: auto;
 }
 
-
-
 .card {
   position: relative;
   width: 250px;
@@ -553,23 +567,16 @@ text-decoration: none;
   transition: transform 0.4s ease-in-out;
 }
 
-.card img::before {
-  background: rgba(0, 0, 0, 0);
-}
-
-.card img:hover::before {
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.card::before {
+.card::after {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  opacity: 0;
-  transition: opacity 0.4s ease-in-out;
+  background-color: rgba(0, 0, 0, 0);
+  transition: background-color 0.4s ease-in-out;
+  pointer-events: none;
 }
 
 .card .text {
@@ -578,20 +585,22 @@ text-decoration: none;
   left: 50%;
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  color: #000000;
+  color: white;
   font-size: 1.2rem;
   font-weight: 700;
-  opacity: 1;
-  transition: opacity 0.4s ease-in-out;
+  z-index: 2;
+  transition: all 0.4s ease-in-out;
 }
 
 .card:hover img {
-  transform: scale(1.3);
+  transform: scale(1.1);
   object-position: left center;
-  background: rgba(0, 0, 0, 0.6);
 }
 
-.card:hover::before,
+.card:hover::after {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
 .card:hover .text {
   opacity: 1;
 }
@@ -599,6 +608,36 @@ text-decoration: none;
 /* Last row center alignment */
 .cards-container a:nth-child(7) {
   grid-column: 2 / 3;
+}
+
+.hidden-text {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    font-size: 0.9rem;
+    text-align: center;
+    color: white;
+    width: 100%; /* Ensures text fits within the card */
+    overflow-wrap: break-word; /* Ensures long words wrap */
+    max-height: 0; /* Hides the text initially */
+    overflow: hidden;
+    padding: 0 10px; /* Adds some spacing */
+}
+
+.card .text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+}
+
+.card:hover .hidden-text {
+    opacity: 1;
+    transform: translateY(0);
+    max-height: 100px; /* Allows enough space for the text */
+    padding: 10px; /* Adds spacing when revealed */
 }
 
 #gallery {
@@ -661,10 +700,6 @@ text-decoration: none;
   margin: auto;
 }
 
-allery{
-  background-image: url("pictures/GalleryBackground.jpg");
-  background-size: cover;
-}
 
 /* Image blocks */
 .gallery-item {
@@ -689,28 +724,28 @@ allery{
   background-image: url("pictures/aboutPageBg.jpg");
 }
 .gallery-item:nth-child(2) {
-  background-image: url("pictures/Badges.jpeg");
+  background-image: url("pictures/Badge3.jpg");
 }
 .gallery-item:nth-child(3) {
   background-image: url("pictures/Hang\ Tags.jpeg");
 }
 .gallery-item:nth-child(4) {
-  background-image: url("pictures/home-bg.jpg");
+  background-image: url("pictures/printedLabel1.jpg");
 }
 .gallery-item:nth-child(5) {
-  background-image: url("pictures/Printed\ Labels.jpeg");
+  background-image: url("pictures/hangtag3.jpg");
 }
 .gallery-item:nth-child(6) {
-  background-image: url("pictures/Poly\ Bags.jpeg");
+  background-image: url("pictures/WovenLabel3.jpeg.jpg");
 }
 .gallery-item:nth-child(7) {
-  background-image: url("pictures/Printed\ Labels.jpeg");
+  background-image: url("pictures/hangtag2.jpg");
 }
 .gallery-item:nth-child(8) {
   background-image: url("pictures/QuotePagePic.jpg");
 }
 .gallery-item:nth-child(9) {
-  background-image: url("pictures/Badges.jpeg");
+  background-image: url("pictures/printedLabel3.jpg");
 }
 .gallery-item:nth-child(10) {
   background-image: url("pictures/tie.jpeg");
@@ -860,7 +895,7 @@ allery{
   grid-template-columns: repeat(4, 1fr);
   gap: 30px;
   padding:  15vh 5vw;
-  background-color: #000;
+  background-color: #1B2631;
   height: 75vh;
   max-width: 100vw;
 }
@@ -868,6 +903,7 @@ allery{
 .logoAndName{
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
 
 .logoAndName h2{
@@ -893,8 +929,10 @@ allery{
 }
 
 .ContactPageLogo{
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
+  object-fit: cover;
+  margin-right: 20px;
 }
 
 .importantLinks{
@@ -1079,7 +1117,7 @@ allery{
 .Socialscard {
   width: fit-content;
   height: fit-content;
-  background-color: rgb(0, 0, 0);
+  background-color: #1B2631;
   display: flex;
   align-items: center;
   justify-content: center;
