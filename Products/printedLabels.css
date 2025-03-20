@@ -121,7 +121,7 @@ nav ul li a:hover::after {
   justify-content: space-between;
   max-width: 900px;
   margin: auto;
-  padding: 0px;
+  padding: 30px;
   gap: 30px; /* Space between image and text */
 }
 .product-images {
