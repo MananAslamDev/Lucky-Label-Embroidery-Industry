@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery</title>
-    <link rel="icon" type="image/svg+xml" href="pictures/LLEI-logo.svg" />
+    <link rel="icon" type="image/svg+xml" href="/pictures/logo.png" />
     <style>
       * {
         margin: 0;
@@ -79,21 +79,36 @@
         display: flex;
       }
 
-      .nav-links li {
-        margin: 0 15px;
-      }
+      nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+  position: relative;
+}
 
-      .nav-links a {
-        text-decoration: none;
-        color: var(--white);
-        font-size: 1rem;
-        padding: 5px 0;
-      }
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  padding: 5px 0;
+  position: relative;
+}
 
-      .nav-links a:hover {
-        color: var(--green);
-        transition: color 0.3s ease-in-out;
-      }
+/* Creating the border effect */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px; /* Adjust distance from text */
+  width: 0%;
+  height: 3px;
+  background-color: var(--green); /* Change to your preferred color */
+  transition: width 0.4s ease-in-out;
+}
+
+nav ul li a:hover::after {
+  width: 100%; /* Expands from left to right */
+}
+
       #gallery {
         background-color: #1b2631;
         height: 180vh;
@@ -174,47 +189,47 @@
 
       /* Background Images */
       .gallery-item:nth-child(1) {
-        background-image: url("/pictures/aboutPageBg.jpg");
-      }
-      .gallery-item:nth-child(2) {
-        background-image: url("pictures/Badges.jpeg");
-      }
-      .gallery-item:nth-child(3) {
-        background-image: url("pictures/Hang\ Tags.jpeg");
-      }
-      .gallery-item:nth-child(4) {
-        background-image: url("pictures/home-bg.jpg");
-      }
-      .gallery-item:nth-child(5) {
-        background-image: url("pictures/Printed\ Labels.jpeg");
-      }
-      .gallery-item:nth-child(6) {
-        background-image: url("pictures/Poly\ Bags.jpeg");
-      }
-      .gallery-item:nth-child(7) {
-        background-image: url("pictures/WebbingTape.jpg");
-      }
-      .gallery-item:nth-child(8) {
-        background-image: url("pictures/QuotePagePic.jpg");
-      }
-      .gallery-item:nth-child(9) {
-        background-image: url("pictures/woven\ labels.jpeg");
-      }
-      .gallery-item:nth-child(10) {
-        background-image: url("pictures/tie.jpeg");
-      }
-      .gallery-item:nth-child(11) {
-        background-image: url("pictures/WebbingTape.jpg");
-      }
-      .gallery-item:nth-child(12) {
-        background-image: url("pictures/woven\ labels.jpeg");
-      }
-      .gallery-item:nth-child(13) {
-        background-image: url("pictures/aboutPageBg.jpg");
-      }
-      .gallery-item:nth-child(14) {
-        background-image: url("pictures/Hang\ Tags.jpeg");
-      }
+  background-image: url("pictures/aboutPageBg.jpg");
+}
+.gallery-item:nth-child(2) {
+  background-image: url("pictures/Badge3.jpg");
+}
+.gallery-item:nth-child(3) {
+  background-image: url("pictures/Hang\ Tags.jpeg");
+}
+.gallery-item:nth-child(4) {
+  background-image: url("pictures/printedLabel1.jpg");
+}
+.gallery-item:nth-child(5) {
+  background-image: url("pictures/hangtag3.jpg");
+}
+.gallery-item:nth-child(6) {
+  background-image: url("pictures/WovenLabel3.jpeg.jpg");
+}
+.gallery-item:nth-child(7) {
+  background-image: url("pictures/hangtag2.jpg");
+}
+.gallery-item:nth-child(8) {
+  background-image: url("pictures/QuotePagePic.jpg");
+}
+.gallery-item:nth-child(9) {
+  background-image: url("pictures/printedLabel3.jpg");
+}
+.gallery-item:nth-child(10) {
+  background-image: url("pictures/tie.jpeg");
+}
+.gallery-item:nth-child(11) {
+  background-image: url("pictures/WebbingTape.jpg");
+}
+.gallery-item:nth-child(12) {
+  background-image: url("pictures/polybag3jpg");
+}
+.gallery-item:nth-child(13) {
+  background-image: url("pictures/polybag4.jpg");
+}
+.gallery-item:nth-child(14) {
+  background-image: url("pictures/woven\ labels.jpeg");
+}
 
       .gallery-item {
         position: relative;
@@ -723,11 +738,11 @@ footer {
   <body>
     <header>
       <div class="logo-container">
-        <img
-          src="pictures/LLEI-logo.svg"
-          alt="LuckyLabelEmbroidery Logo"
-          class="logo"
-        />
+        <a href="/index.html"> <img
+        src="/pictures/logo.png"
+        alt="LuckyLabelEmbroidery Logo"
+        class="logo"
+        /> </a>
         <h1>Lucky Label Embroidery Industry</h1>
       </div>
       <nav>
@@ -778,7 +793,7 @@ footer {
           <div class="logoAndName">
             <a href="index.html#home"
               ><img
-                src="/pictures/LLEI-logo.svg"
+                src="/pictures/logo.png"
                 alt="LuckyLabelEmbroidery Logo"
                 class="ContactPageLogo"
             /></a>
