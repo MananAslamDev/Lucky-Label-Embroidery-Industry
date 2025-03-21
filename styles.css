@@ -112,13 +112,35 @@ nav ul li a:hover::after {
 #home {
   margin: 0;
   padding-top: auto;
-  background: url(pictures/home-bg.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 100vh;
   max-width: 100vw;
   padding: 100px 20px;
 }
+
+/* Fullscreen background slideshow */
+.slideshow-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  animation: backgroundSlideshow 18s infinite; /* Slower transition */
+  z-index: -1; /* Keeps it in the background */
+  transition: background-image 3s ease-in-out; /* Smooth fading effect */
+}
+
+/* Keyframes for smooth fading background transitions */
+@keyframes backgroundSlideshow {
+  0%, 20% { background-image: url('pictures/home-bg.jpg'); opacity: 1; }
+  25%, 45% { background-image: url('pictures/home-bg2.jpg'); opacity: 1; }
+  50%, 70% { background-image: url('pictures/home-bg3.jpg'); opacity: 1; }
+  75%, 95% { background-image: url('pictures/home-bg4.jpg'); opacity: 1; }
+  100% { background-image: url('pictures/home-bg5.jpg'); opacity: 1; }
+}
+
 
 #home .intro-text h6 {
   font-weight: 200;

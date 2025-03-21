@@ -115,54 +115,66 @@ nav ul li a:hover::after {
   font-size: 1.5rem;
 }
 .product-section {
-  height: 90vh;
   display: flex;
-  align-items: center; /* Align image and text in the center */
-  justify-content: space-between;
-  max-width: 900px;
-  margin: auto;
-  padding: 30px;
-  gap: 30px; /* Space between image and text */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  padding: 50px 20px; /* Adds spacing */
 }
+
+/* 📌 Centering & Expanding the Slider */
+.product-slider {
+  position: relative;
+  width: 70%;
+  max-width: 800px;
+  height: 40vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5vh auto 10vh; /* Centers it properly */
+}
+
+/* 🖼️ Image Slideshow */
 .product-images {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columns */
-  grid-auto-rows: auto; /* Adjust row height dynamically */
-  gap: 10px; /* Space between images */
-  max-width: 400px; /* Limits grid width */
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .product-images img {
-  width: 100%; /* Make images fill their grid cells */
-  border-radius: 10px; /* Optional: Rounded corners */
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adds a soft shadow */
-  object-fit: cover; /* Ensures images don't get distorted */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: fadeSlider 12s infinite;
 }
 
-.product-images img.medium {
-  grid-row: span 1; /* Medium images */
+/* 🎞️ Image Animation */
+.product-images img:nth-child(1) { animation-delay: 0s; }
+.product-images img:nth-child(2) { animation-delay: 3s; }
+.product-images img:nth-child(3) { animation-delay: 6s; }
+.product-images img:nth-child(4) { animation-delay: 9s; }
+
+@keyframes fadeSlider {
+  0% { opacity: 0; }
+  8% { opacity: 1; }
+  25% { opacity: 1; }
+  33% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
-.product-images img.short {
-  grid-row: span 1; /* Short images */
-}
-
-/* Responsive: Switch to single column on small screens */
-@media (max-width: 768px) {
-  .product-images {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .product-images img {
-    width: 70%;
-  }
-}
-
-/* Right Side: Text */
+/* 📌 Text Styling */
 .product-text {
-  max-width: 450px;
+  max-width: 80vw;
+  text-align: center;
 }
 
 .product-text h2 {
@@ -178,34 +190,37 @@ nav ul li a:hover::after {
   margin-bottom: 30px;
 }
 
-/* Button Styling */
+/* 🎨 Button Styling */
 .btn {
   text-decoration: none;
   background-color: #000;
   color: white;
-  padding: 10px 20px;
+  padding: 12px 24px;
   border: none;
   border-radius: 5px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, transform 0.2s;
+  display: inline-block;
 }
 
 .btn:hover {
   background-color: #4c4c4c;
+  transform: scale(1.05);
 }
 
-/* 📌 Responsive: Stack on small screens */
+/* 📱 Responsive Adjustments */
 @media (max-width: 768px) {
-  .product-section {
-    flex-direction: column;
-    text-align: center;
+  .product-slider {
+    width: 90%;
+    height: 250px;
   }
 
-  .product-image img {
-    max-width: 100%; /* Make image responsive */
+  .product-text {
+    max-width: 80vw;
   }
 }
+
 #contact {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

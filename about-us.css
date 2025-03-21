@@ -140,8 +140,8 @@ main {
 }
 
 .person img {
-  width: 120px; /* Adjust size */
-  height: 120px;
+  width: 180px; /* Adjust size */
+  height: 180px;
   border-radius: 50%; /* Make images round */
   object-fit: cover; /* Ensure image fits inside the circle */
   border: 3px solid #333; /* Optional: Border around images */
@@ -194,19 +194,12 @@ main {
   }
 
   .about-images {
-    justify-content: center;
-  }
-}
-
-/* 📌 Responsive: Stack on small screens */
-@media (max-width: 768px) {
-  .about-container {
-    flex-direction: column;
-    text-align: center;
+    justify-content: space-evenly;
   }
 
-  .about-images {
-    justify-content: center;
+  .person img {
+    width: 130px;
+    height: 130px;
   }
 }
 
