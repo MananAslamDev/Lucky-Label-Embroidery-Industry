@@ -28,73 +28,120 @@
 }
 
 .container {
-    background: #1B2631;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    width: 100%;
-    max-width: 450px;
-    color: #fff;
-    margin-bottom: 5vh; /* Keeps space for the footer */
+  background: #1B2631;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  max-width: 450px;
+  color: #fff;
+  margin-bottom: 5vh; /* Keeps space for the footer */
 }
 
-      .container h2 {
-        text-align: center;
-        margin-bottom: 15px;
-      }
+.container h2 {
+  text-align: center;
+  margin-bottom: 15px;
+}
 
-      .form-group {
-        margin-bottom: 12px;
-      }
+.form-group {
+  margin-bottom: 12px;
+}
 
-      label {
-        display: block;
-        font-size: 14px;
-        margin-bottom: 5px;
-      }
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
 
-      input,
-      textarea,
-      select {
-        width: 100%;
-        padding: 10px;
-        border: none;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.3);
-        color: #fff;
-        outline: none;
-      }
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  color: #fff;
+  outline: none;
+}
 
-      input::placeholder,
-      textarea::placeholder {
-        color: rgba(255, 255, 255, 0.7);
-      }
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
 
-      button {
-        width: 100%;
-        padding: 10px;
-        background: #ff4d6d;
-        border: none;
-        border-radius: 8px;
-        color: white;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s;
-      }
+.submit {
+  width: 100%;
+  padding: 10px;
+  background: #ff4d6d;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
-      button:hover {
-        background: #e63650;
-      }
+.submit:hover {
+  background: #e63650;
+}
 
-      .form-group input[type="file"] {
-        padding: 5px;
-        background: none;
-      }
+/* 📌 File Input Styling */
+.form-group input[type="file"] {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
 
-      .form-group input[type="checkbox"] {
-        width: auto;
-      }
+/* Custom Button for File Upload */
+input[type="file"]::-webkit-file-upload-button {
+  background: #ff4d6d;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+  background: #e63650;
+}
+/* Keep Checkbox & Label in One Line */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Adds spacing between checkbox and text */
+  white-space: nowrap; /* Prevents text from wrapping */
+  font-size: 14px; /* Ensures proper sizing */
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.3); /* Semi-transparent background */
+  color: #fff; /* White text */
+  outline: none;
+  appearance: none; /* Removes default styles on some browsers */
+}
+
+/* Ensure dropdown options are visible */
+select option {
+  background: #1B2631; /* Dark background for options */
+  color: white; /* White text for contrast */
+}
 
       * {
         margin: 0;
@@ -123,43 +170,148 @@
       }
 
       /* Header */
-      header {
-        padding: 0px 10px;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 10h;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        background: rgba(0, 0, 0, 0.6);
-        border-bottom: 3px solid var(--green);
-        z-index: 1000;
-      }
+header {
+  padding: 0px 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom: 3px solid var(--green);
+  z-index: 1000;
+}
 
-      /* Logo + Heading */
-      .logo-container {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-
-      /* Logo */
-      .logo {
-        height: 40px;
-        width: auto;
-      }
-
-      /* Heading */
-      header h1 {
-        font-size: 1.5rem;
-      }
-
-      .headerLink{
+/* Header Link */
+.headerLink {
   text-decoration: none;
   color: #fff;
+}
+
+/* Logo + Heading */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Logo */
+.logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Heading */
+header h1 {
+  font-size: 1.5rem;
+}
+
+/* 📌 Sidebar (Hidden by Default) */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  transition: 0.4s ease-in-out;
+  padding-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sidebar Links */
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.sidebar ul li {
+  padding: 15px;
+}
+
+.sidebar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: var(--green);
+}
+
+/* Sidebar Open State */
+.sidebar.open {
+  left: 0;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Menu Button */
+.menu-btn {
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  color: white;
+  display: none; /* Hide on desktop */
+}
+
+/* 📌 Responsive: Adjust for Mobile */
+@media (max-width: 768px) {
+  /* Adjust header layout */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  /* Ensure menu button stays on the left */
+  .menu-btn {
+    margin-left: 10px;
+    display: block;
+  }
+
+  /* Center logo and heading */
+  .logo-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  /* Fix title size */
+  header h1 {
+    font-size: 1.2rem;
+    margin-left: 70px;
+  }
 }
 
       /* Navigation */
@@ -452,7 +604,7 @@ nav ul li a:hover::after {
   background-color: #d62976;
   transition-duration: 0.3s;
 }
-/* twitter*/
+/* facebook*/
 .containerTwo:hover {
   background-color: #00acee;
   transition-duration: 0.3s;
@@ -718,10 +870,24 @@ footer {
         <h1>Lucky Label Embroidery Industry</h1>
         </div>
       </a>
+      <!-- Mobile Menu Button -->
+<button class="menu-btn">&#9776;</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+  <button class="close-btn">&times;</button> <!-- Close Button -->
+  <ul>
+    <li><a href="index.html#home">Home</a></li>
+    <li><a href="about-us.html">About Us</a></li>
+    <li><a href="index.html#products">Products</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</nav>
       <nav>
         <ul class="nav-links">
           <li><a href="../index.html#home">Home</a></li>
-          <li><a href="../index.html#about">About Us</a></li>
+          <li><a href="../about-us.html">About Us</a></li>
           <li><a href="../index.html#products">Products</a></li>
           <li><a href="../index.html#gallery">Gallery</a></li>
           <li><a href="../index.html#contact">Contact Us</a></li>
@@ -729,85 +895,51 @@ footer {
       </nav>
     </header>
 
-    <div class="container">
+    <div class="container"> 
       <h2>Get a Quote</h2>
-      <form
-      action="https://formspree.io/f/xanenyjp"
-      method="POST"
-      enctype="multipart/form-data"
-      >
+      <form action="https://formspree.io/f/xanenyjp" method="POST" enctype="multipart/form-data">
+        
         <div class="form-group">
           <label for="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            placeholder="Enter your name"
-          />
+          <input type="text" id="name" name="name" required placeholder="Enter your name" />
         </div>
-
+    
         <div class="form-group">
           <label for="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="Enter your email"
-          />
+          <input type="email" id="email" name="email" required placeholder="Enter your email" />
         </div>
-
+    
         <div class="form-group">
           <label for="company">Company Name:</label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            placeholder="Enter your company name"
-          />
+          <input type="text" id="company" name="company" placeholder="Enter your company name" />
         </div>
-
+    
         <div class="form-group">
           <label for="subject">Subject:</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            required
-            placeholder="Enter subject"
-          />
+          <input type="text" id="subject" name="subject" required placeholder="Enter subject" />
         </div>
-
+    
         <div class="form-group">
           <label for="message">Message:</label>
-          <textarea
-            id="message"
-            name="message"
-            rows="4"
-            required
-            placeholder="Enter details of your request"
-          ></textarea>
+          <textarea id="message" name="message" rows="4" required placeholder="Enter details of your request"></textarea>
         </div>
-
+    
         <div class="form-group">
           <label for="quantity">Quantity:</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            min="1"
-            required
-            placeholder="Enter quantity"
-          />
+          <input type="number" id="quantity" name="quantity" min="1" required placeholder="Enter quantity" />
         </div>
-
+    
         <div class="form-group">
+          <label for="file">Attach a File:</label>
+          <input type="file" id="file" name="file" />
+        </div>
+    
+        <div class="form-group checkbox-group">
           <label>
             <input type="checkbox" name="sample" /> Request a Sample
           </label>
         </div>
-
+    
         <div class="form-group">
           <label for="heard_about">How did you hear about us?</label>
           <select id="heard_about" name="heard_about">
@@ -817,10 +949,12 @@ footer {
             <option value="Other">Other</option>
           </select>
         </div>
-
-        <button type="submit">Submit Request</button>
+    
+        <button class="submit" type="submit">Submit Request</button>
       </form>
     </div>
+    
+    
     <section id="contact">
         <div class="ContactlogoAndDecsription">
           <div class="logoAndName">
@@ -876,7 +1010,7 @@ footer {
           <h2>Important Links</h2>
           <ul class="ContactImportantLinks">
             <li><a href="index.html#home">Home</a></li>
-            <li><a href="index.html#about">About Us</a></li>
+            <li><a href="about-us.html">About Us</a></li>
             <li><a href="index.html#products">Products</a></li>
             <li><a href="index.html#gallery">Gallery</a></li>
             <li><a href="index.html#contact">Contact</a></li>
@@ -896,7 +1030,7 @@ footer {
           <h2>Contact Us</h2>
           <div class="contactIconLinks">
             <div class="ContactInfo1">
-              <a href="tel:+923184657872">
+              <a href="tel:+923008478186">
                 <svg
                   class="phoneIcon"
                   viewBox="0 0 24 24"
@@ -921,11 +1055,11 @@ footer {
                     fill="white"
                   ></path>
                 </svg>
-                <span class="phoneNumber">+92 318 4657872</span>
+                <span class="phoneNumber">+92 300 8478186</span>
               </a>
             </div>
             <div class="ContactInfo2">
-              <a href="mailto:your.email@example.com">
+              <a href="mailto:luckylabelemb@yahoo.com">
                 <svg
                   class="emailIcon"
                   viewBox="0 0 24 24"
@@ -939,7 +1073,7 @@ footer {
                     fill="white"
                   ></path>
                 </svg>
-                <span class="emailText"> your.email@example.com</span>
+                <span class="emailText"> luckylabelemb@yahoo.com</span>
               </a>
             </div>
             <div class="ContactInfo3">
@@ -992,5 +1126,33 @@ footer {
         Reserved.
       </p>
     </footer>
+
+    <script>
+      document.getElementById("file").addEventListener("change", function () {
+  const fileName = this.files.length > 0 ? this.files[0].name : "No file chosen";
+  document.querySelector(".file-name").textContent = fileName;
+});
+      document.addEventListener("DOMContentLoaded", function () {
+        const menuBtn = document.querySelector(".menu-btn");
+        const sidebar = document.querySelector(".sidebar");
+        const closeBtn = document.querySelector(".close-btn");
+    
+        menuBtn.addEventListener("click", function () {
+          sidebar.classList.add("open");
+        });
+    
+        closeBtn.addEventListener("click", function () {
+          sidebar.classList.remove("open");
+        });
+    
+        // Close sidebar if user clicks outside
+        document.addEventListener("click", function (event) {
+          if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+            sidebar.classList.remove("open");
+          }
+        });
+      });
+
+    </script>
   </body>
 </html>

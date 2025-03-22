@@ -17,10 +17,24 @@
         /> </a>
         <h1>Lucky Label Embroidery Industry</h1>
       </div>
+      <!-- Mobile Menu Button -->
+<button class="menu-btn">&#9776;</button>
+
+<!-- Sidebar Navigation -->
+<nav class="sidebar">
+  <button class="close-btn">&times;</button> <!-- Close Button -->
+  <ul>
+    <li><a href="/index.html">Home</a></li>
+    <li><a href="/about-us.html">About Us</a></li>
+    <li><a href="/index.html#products">Products</a></li>
+    <li><a href="/gallery.html">Gallery</a></li>
+    <li><a href="#contact">Contact Us</a></li>
+  </ul>
+</nav>
       <nav>
         <ul class="nav-links">
           <li><a href="../index.html#home">Home</a></li>
-          <li><a href="../index.html#about">About Us</a></li>
+          <li><a href="../about-us.html">About Us</a></li>
           <li><a href="../index.html#products">Products</a></li>
           <li><a href="../index.html#gallery">Gallery</a></li>
           <li><a href="../index.html#contact">Contact Us</a></li>
@@ -113,7 +127,7 @@
         <h2>Important Links</h2>
         <ul class="ContactImportantLinks">
           <li><a href="/index.html#home">Home</a></li>
-          <li><a href="/index.html#about">About Us</a></li>
+          <li><a href="/about-us.html">About Us</a></li>
           <li><a href="/index.html#products">Products</a></li>
           <li><a href="/index.html#gallery">Gallery</a></li>
           <li><a href="/index.html#contact">Contact</a></li>
@@ -133,7 +147,7 @@
         <h2>Contact Us</h2>
         <div class="contactIconLinks">
           <div class="ContactInfo1">
-            <a href="tel:+923184657872">
+            <a href="tel:+923008478186">
               <svg
                 class="phoneIcon"
                 viewBox="0 0 24 24"
@@ -158,11 +172,11 @@
                   fill="white"
                 ></path>
               </svg>
-              <span class="phoneNumber">+92 318 4657872</span>
+              <span class="phoneNumber">+92 300 8478186</span>
             </a>
           </div>
           <div class="ContactInfo2">
-            <a href="mailto:your.email@example.com">
+            <a href="mailto:luckylabelemb@yahoo.com">
               <svg
                 class="emailIcon"
                 viewBox="0 0 24 24"
@@ -176,7 +190,7 @@
                   fill="white"
                 ></path>
               </svg>
-              <span class="emailText"> your.email@example.com</span>
+              <span class="emailText"> luckylabelemb@yahoo.com</span>
             </a>
           </div>
           <div class="ContactInfo3">
@@ -229,5 +243,27 @@
       Reserved.
     </p>
   </footer>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuBtn = document.querySelector(".menu-btn");
+      const sidebar = document.querySelector(".sidebar");
+      const closeBtn = document.querySelector(".close-btn");
+  
+      menuBtn.addEventListener("click", function () {
+        sidebar.classList.add("open");
+      });
+  
+      closeBtn.addEventListener("click", function () {
+        sidebar.classList.remove("open");
+      });
+  
+      // Close sidebar if user clicks outside
+      document.addEventListener("click", function (event) {
+        if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+          sidebar.classList.remove("open");
+        }
+      });
+    });
+  </script>
   </body>
 </html>
