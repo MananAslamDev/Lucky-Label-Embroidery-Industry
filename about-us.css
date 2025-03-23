@@ -152,11 +152,13 @@ header h1 {
     align-items: center;
   }
 
+  /* Fix title size */
   .logo-container {
     font-size: 1.2rem;
     margin-left: 50px;
   }
 }
+
 
 /* Navigation */
 nav {

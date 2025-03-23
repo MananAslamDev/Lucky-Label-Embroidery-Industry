@@ -9,37 +9,39 @@
   </head>
   <body>
     <header>
-      <a href="/index.html#home" class="headerLink"> 
+      <a href="index.html" class="headerLink">
         <div class="logo-container">
-        <img
-          src="pictures/logo.png"
-          alt="LuckyLabelEmbroidery Logo"
-          class="logo"
-        />
-        <h1>Lucky Label Embroidery Industry</h1>
+          <img
+            src="pictures/logo.png"
+            alt="LuckyLabelEmbroidery Logo"
+            class="logo"
+          />
+          <h1>Lucky Label Embroidery Industry</h1>
         </div>
       </a>
       <!-- Mobile Menu Button -->
-<button class="menu-btn">&#9776;</button>
+      <button class="menu-btn">&#9776;</button>
 
-<!-- Sidebar Navigation -->
-<nav class="sidebar">
-  <button class="close-btn">&times;</button> <!-- Close Button -->
-  <ul>
-    <li><a href="index.html#home">Home</a></li>
-    <li><a href="about-us.html">About Us</a></li>
-    <li><a href="index.html#products">Products</a></li>
-    <li><a href="gallery.html">Gallery</a></li>
-    <li><a href="#contact">Contact Us</a></li>
-  </ul>
-</nav>
+      <!-- Sidebar Navigation -->
+      <nav class="sidebar">
+        <button class="close-btn">&times;</button>
+        <!-- Close Button -->
+        <ul>
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="index.html#products">Products</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
       <nav>
         <ul class="nav-links">
-          <li><a href="index.html#home">Home</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="index.html#products">Products</a></li>
-          <li><a href="index.html#gallery">Gallery</a></li>
-          <li><a href="index.html#contact">Contact Us</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="about-us.html">About Us</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact Us</a></li>
         </ul>
       </nav>
     </header>
@@ -62,7 +64,7 @@
 
         <!-- Right side: About Us text -->
         <div class="about-text">
-            <h2>Our Story</h2>
+          <h2>Our Story</h2>
           <p>
             Since our establishment in 1997, we have proudly played a pivotal
             role in shaping Pakistan’s textile industry. As one of the few
@@ -70,11 +72,12 @@
             introduce advanced technology and innovative techniques, setting new
             industry standards. Founded by Mr. Amir Jamil (late) and Mr. Irfan
             Jamil, our company was built on a foundation of hard work,
-            integrity, and a relentless commitment to excellence. <br> <br> Over the
-            years, we have expanded our offerings to include a wide range of
-            essential textile accessories, such as hang tags, printed labels,
-            and polybags, providing our clients with comprehensive solutions
-            that help elevate their brands and products. Our continued
+            integrity, and a relentless commitment to excellence. <br />
+            <br />
+            Over the years, we have expanded our offerings to include a wide
+            range of essential textile accessories, such as hang tags, printed
+            labels, and polybags, providing our clients with comprehensive
+            solutions that help elevate their brands and products. Our continued
             investment in state-of-the-art machinery and technology ensures that
             we deliver fast, reliable, and exceptional products, tailored to
             meet the unique needs of each client. As we move forward, our
@@ -112,7 +115,7 @@
 
             <a class="socialContainer containerTwo" href="#">
               <svg viewBox="0 0 24 24" class="socialSvg facebookSvg">
-                <path 
+                <path
                   d="M22.675 0h-21.35C.597 0 0 .6 0 1.337V22.66C0 23.4.597 24 1.325 24h11.495v-9.294H9.69v-3.62h3.13V8.41c0-3.1 1.893-4.788 4.656-4.788 1.325 0 2.464.097 2.795.142v3.24h-1.918c-1.504 0-1.793.716-1.793 1.764v2.313h3.587l-.467 3.62h-3.12V24h6.117c.728 0 1.325-.6 1.325-1.34V1.337C24 .6 23.403 0 22.675 0z"
                   fill="currentColor"
                 ></path>
@@ -261,18 +264,21 @@
         const menuBtn = document.querySelector(".menu-btn");
         const sidebar = document.querySelector(".sidebar");
         const closeBtn = document.querySelector(".close-btn");
-    
+
         menuBtn.addEventListener("click", function () {
           sidebar.classList.add("open");
         });
-    
+
         closeBtn.addEventListener("click", function () {
           sidebar.classList.remove("open");
         });
-    
+
         // Close sidebar if user clicks outside
         document.addEventListener("click", function (event) {
-          if (!sidebar.contains(event.target) && !menuBtn.contains(event.target)) {
+          if (
+            !sidebar.contains(event.target) &&
+            !menuBtn.contains(event.target)
+          ) {
             sidebar.classList.remove("open");
           }
         });
