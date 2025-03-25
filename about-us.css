@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+:root {
+  --green: #37ff8b;
+  --white: #ffffff;
+  --black: #000000;
+}
+
 html {
   scroll-behavior: smooth !important;
   overflow-x: hidden;
@@ -15,7 +21,7 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   background-color: black;
   color: white;
-  padding-top: auto;
+  padding-top: 1vh;
 }
 
 /* Header */

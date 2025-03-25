@@ -212,7 +212,7 @@ nav ul li a:hover::after {
 }
 
 .mainHeading {
-  margin-top: 10vh;
+  margin-top: 9vh;
   padding: 10vh 0;
   background: url(../pictures/AboutUsPageHeader.jpg);
   background-size: cover;
