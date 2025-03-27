@@ -21,7 +21,6 @@ html {
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-    line-height: 2px;
   background-color: #1B2631;
   color: var(--white);
   padding-top: auto;
