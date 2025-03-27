@@ -21,6 +21,7 @@ html {
 body {
   font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+    line-height: 2px;
   background-color: #1B2631;
   color: var(--white);
   padding-top: auto;
@@ -952,8 +953,8 @@ text-decoration: none;
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-80%);
-  } /* Moves halfway since we duplicate slides */
+    transform: translateX(-68%);
+  } 
 }
 
 .slider {
